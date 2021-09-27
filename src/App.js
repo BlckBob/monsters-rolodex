@@ -16,11 +16,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onSearchChange = (evt) => {
-    setSearchField(evt.target.value);
-    console.log(evt.nativeEvent.data);
-    console.log(evt.target);
-  };
+  const onSearchChange = (evt) => setSearchField(evt.target.value);
 
   const filteredMonsters = monsters.filter((monster) =>
     monster.name.toLowerCase().includes(searchField.toLowerCase())
@@ -30,10 +26,6 @@ function App() {
     <div className='App'>
       <h1>Monsters Rolodex</h1>
       <SearchBox placeholder='search monsters' handleChange={onSearchChange} />
-      {/* <SearchBox
-        placeholder='search monsters'
-        handleChange={(evt) => setSearchField(evt.target.value)}
-      /> */}
       <CardList monsters={filteredMonsters} />
     </div>
   );
